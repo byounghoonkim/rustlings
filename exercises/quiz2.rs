@@ -18,8 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -36,8 +34,8 @@ mod my_module {
         for (string, command) in input.iter() {
             match command {
                 Command::Uppercase => output.push(string.to_uppercase()),
-                Command::Trim => output.push(string.to_uppercase()),
-                Command::Append(usize) => output.push(string.to_uppercase()),
+                Command::Trim => output.push(string.trim().to_string()),
+                Command::Append(usize) => output.push(string.to_owned() + &"bar".repeat(*usize)),
             }
         }
         output
